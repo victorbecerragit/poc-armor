@@ -1,4 +1,4 @@
-# White listing IP's using Cloud Armor
+# POC DEMO- White listing IP's using Cloud Armor (DDoS Attack)
 Ref: https://github.com/hashicorp/terraform-provider-google/tree/master/examples/cloud-armor
 
 This is an example of setting up a project to take advantage of one of the [Cloud Armor features](https://cloud.google.com/armor/) that allows whitelisting of traffic to a compute instance based on ip address. It will set up a single compute instance running nginx that is accessible via a load balanced pool that is managed by cloud armor security policies.
