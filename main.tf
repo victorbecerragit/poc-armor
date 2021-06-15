@@ -18,6 +18,7 @@ resource "google_compute_network" "vpc_network" {
 # two instances in a pool running nginx with port 80 open will allow end to end network testing
 # nginx-gce.tf
 
+#Create the Firewall rules
 resource "google_compute_firewall" "cluster1" {
   name    = "armor-firewall"
   network = "terraform-network"
@@ -28,9 +29,11 @@ resource "google_compute_firewall" "cluster1" {
   }
 }
 
+#Create the instance group for autocaling , multi zone or automated deployments 
 resource "google_compute_instance_group" "webservers" {
   name        = "instance-group-all"
-  description = "An instance group for the single GCE instance"
+  description = "An instance group for GCE instances"
+  zone = "${data.google_compute_zones.available.names[0]}"
 
   instances = [
     google_compute_instance.web_A.self_link, google_compute_instance.web_B.self_link
@@ -42,6 +45,7 @@ resource "google_compute_instance_group" "webservers" {
   }
 }
 
+#Create the target pool
 resource "google_compute_target_pool" "example" {
   name = "armor-pool"
 
@@ -54,6 +58,7 @@ resource "google_compute_target_pool" "example" {
   ]
 }
 
+#Create the health check for the LB
 resource "google_compute_http_health_check" "health" {
   name               = "armor-healthcheck"
   request_path       = "/"
