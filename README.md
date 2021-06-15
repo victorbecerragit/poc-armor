@@ -48,7 +48,7 @@ After running the Now that our attack is underway, let's check on how our load b
 Wait a few minutes for your stress instance to generate traffic and have metrics created
 Go to your load balancer page by going to the top left menu - Network Services - Load Balancing
 Select the Backends tab
-Select 'armor-url-map'
+Select 'armor-backend' from the LB 'armor-url-map'
 You should be able to view metrics of backend traffic distribution. If you refresh your page every few minutes, the backend distribution will shift between regions as one region becomes overwhelemed, causing the load balancer to redistributed traffic to the other region
 
 * Create a Cloud Armor policy to deny traffic from our `stress` instance

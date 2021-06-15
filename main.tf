@@ -8,13 +8,19 @@ provider "google" {
   zone        = var.region_zone
 }
 
+#Create new VPC 
+resource "google_compute_network" "vpc_network" {
+  name                    = "terraform-network"
+  auto_create_subnetworks = "true"
+}
+
 # Set up a backend to be proxied to:
 # two instances in a pool running nginx with port 80 open will allow end to end network testing
 # nginx-gce.tf
 
 resource "google_compute_firewall" "cluster1" {
   name    = "armor-firewall"
-  network = "default"
+  network = "terraform-network"
 
   allow {
     protocol = "tcp"
@@ -55,6 +61,7 @@ resource "google_compute_http_health_check" "health" {
   timeout_sec        = 2 
 }
 
+#Create LB Backend service
 resource "google_compute_backend_service" "website" {
   name        = "armor-backend"
   description = "Our company website"

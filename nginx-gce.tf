@@ -20,7 +20,8 @@ resource "google_compute_instance" "web_A" {
 
   network_interface {
     # A default network is created for all GCP projects
-    network = "default"
+    # network = "default"
+    network = google_compute_network.vpc_network.self_link
     access_config {
     }
   }
@@ -81,7 +82,8 @@ resource "google_compute_instance" "web_B" {
 
   network_interface {
     # A default network is created for all GCP projects
-    network = "default"
+    # network = "default"
+    network = google_compute_network.vpc_network.self_link
     access_config {
     }
   }

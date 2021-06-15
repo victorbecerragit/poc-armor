@@ -11,7 +11,7 @@ variable "region_zone" {
 variable "project_name" {
   description = "The ID of the Google Cloud project"
   type        = string
-  default     = "playground-s-11-217dd499"
+  default     = "lynqs-sandbox-ba"
 }
 
 variable "credentials_file" {
