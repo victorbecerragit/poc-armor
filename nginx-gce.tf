@@ -59,7 +59,6 @@ cat <<EOF > /var/www/html/index.html
   </style>
 </head>
 <body>
-  <img src="https://github.com/neutraltone/awesome-stock-resources/blob/master/img/splash.jpg">
   <p>This request was proxied from <strong>Google Cloud Platform</strong></p>
 </body>
 </html>
@@ -121,7 +120,6 @@ cat <<EOF > /var/www/html/index.html
   </style>
 </head>
 <body>
-  <img src="https://github.com/neutraltone/awesome-stock-resources/blob/master/img/splash.jpg">
   <p>This request was proxied from <strong>Google Cloud Platform</strong></p>
 </body>
 </html>
