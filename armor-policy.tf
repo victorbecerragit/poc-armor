@@ -30,11 +30,11 @@ resource "google_compute_security_policy" "security-policy-ddos-block" {
       versioned_expr = "SRC_IPS_V1"
 
       config {
-        src_ip_ranges = var.ip_block_list
+        src_ip_ranges = var.ip_black_list
       }
     }
 
-    description = "Default rule, higher priority overrides it"
+    description = "Block rule to block all black_list IP address"
   }
   
   # Whitelist traffic from certain ip address
