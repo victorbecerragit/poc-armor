@@ -29,9 +29,9 @@ After running `terraform apply` the external ip addresses  of the load balancer 
 Also you can visualize the IP addresses with 'terraform output'
 
 * Begin simulated DDoS attack
-SSH into stress-instance instance
+SSH into stress-instance instance that will be created in other region (us-west1)
 ```
-$gcloud compute ssh stress-instance-xxxx --region europe-west6
+$gcloud compute ssh poc-armor-stress-instance --zone=us-west1-a
 ```
 Enter the below command to open 1000 concurrent connections to the application.
 Substitute your frontend IP address for (your-frontend-ip)
