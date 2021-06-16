@@ -13,7 +13,7 @@ To run the example:
 * gcloud config:
   $gcloud auth login
   $gcloud iam service-accounts list | grep terraform-deploy
-  $gcloud iam service-accounts keys create sa-tf.json --iam-account terraform-deploy@playground-s-11-6608e288.iam.gserviceaccount.com
+  $gcloud iam service-accounts keys create sa-tf.json --iam-account terraform-deploy@lynqs-sandbox-ba.iam.gserviceaccount.com
   $gcloud config set project <your-project>
 ```
 * Run with a command similar to:
