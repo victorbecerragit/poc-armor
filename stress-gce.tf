@@ -5,7 +5,7 @@ output "gcp_instance_stress_ip" {
 resource "google_compute_instance" "stress" {
   project      = var.project_name
   name         = "${var.name}-stress-instance"
-  zone         = var.region_zone
+  zone         = var.region_stress_zone
   machine_type = "f1-micro"
 
   boot_disk {

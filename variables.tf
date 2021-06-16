@@ -8,6 +8,11 @@ variable "region_zone" {
   default = "europe-west6-a"
 }
 
+variable "region_stress_zone" {
+  type    = string
+  default = "us-west1-a"
+}
+
 variable "project_name" {
   description = "The ID of the Google Cloud project"
   type        = string
@@ -28,4 +33,9 @@ variable "name" {
 variable "ip_white_list" {
   description = "A list of ip addresses that can be white listed through security policies"
   default     = ["192.0.2.0/24" , "34.65.85.50"]
+}
+
+variable "ip_block_list" {
+  description = "A list of ip addresses that can be white listed through security policies"
+  default     = ["35.203.186.217"]
 }

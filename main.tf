@@ -21,8 +21,12 @@ resource "google_compute_network" "vpc_network" {
 #Create the Firewall rules
 resource "google_compute_firewall" "cluster1" {
   name    = "armor-firewall"
-  network = "terraform-network"
-
+  network = google_compute_network.vpc_network.name 
+  
+  allow {
+    protocol = "icmp"
+  }
+ 
   allow {
     protocol = "tcp"
     ports    = ["80", "43", "22"]
@@ -79,7 +83,7 @@ resource "google_compute_backend_service" "website" {
   }
   
   #Enable security policy in the backend
-  #security_policy = google_compute_security_policy.security-policy-ddos-block.self_link
+  security_policy = google_compute_security_policy.security-policy-ddos-block.self_link
 
   health_checks = [google_compute_http_health_check.health.self_link]
 }
