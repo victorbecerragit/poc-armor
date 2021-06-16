@@ -5,6 +5,8 @@ This is an example of setting up a project to take advantage of one of the [Clou
 
 We are going to walkthrough the process of creating a Cloud Armor policy, which will be used to protect against a simulated distributed denial of service (DDoS) attack
 
+![alt text](https://github.com/victorbecerragit/poc-armor/blob/main/images/gcp-armor-lb.jpg "GCP diagram")
+
 ```
 To run the example:
 * Set up a Google Cloud Platform service account. 
