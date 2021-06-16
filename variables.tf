@@ -31,11 +31,11 @@ variable "name" {
 }
 
 variable "ip_white_list" {
-  description = "A list of ip addresses that can be white listed through security policies"
+  description = "A list of ip addresses that can be white listed through security policies, until 10 IP address or ranges"
   default     = ["192.0.2.0/24" , "34.65.85.50"]
 }
 
-variable "ip_block_list" {
-  description = "A list of ip addresses that can be white listed through security policies"
+variable "ip_black_list" {
+  description = "A list of ip addresses that can be white listed through security policies, until 10 IP address or ranges"
   default     = ["35.203.186.217"]
 }
