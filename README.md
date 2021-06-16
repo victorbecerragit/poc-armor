@@ -12,7 +12,7 @@ To run the example:
 * Update the `variables.tf` OR provide overrides in the command line
 * gcloud config:
   $gcloud auth login
-  $gcloud iam serviceaccounts | grep terraform
+  $gcloud iam service-accounts list | grep terraform-deploy
   $gcloud iam service-accounts keys create sa-tf.json --iam-account terraform-deploy@playground-s-11-6608e288.iam.gserviceaccount.com
   $gcloud config set project <your-project>
 ```

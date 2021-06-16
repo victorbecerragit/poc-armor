@@ -33,7 +33,6 @@ resource "google_compute_firewall" "cluster1" {
 resource "google_compute_instance_group" "webservers" {
   name        = "instance-group-all"
   description = "An instance group for GCE instances"
-  zone = "${data.google_compute_zones.available.names[0]}"
 
   instances = [
     google_compute_instance.web_A.self_link, google_compute_instance.web_B.self_link
