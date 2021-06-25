@@ -20,19 +20,6 @@ output "kubernetes_cluster_host" {
   description = "GKE Cluster Host"
 }
 
-#nginx
-output "gcp_instance_webserverA_ip" {
-  value = google_compute_instance.web_A.network_interface[0].access_config[0].nat_ip
-}
-
-output "gcp_instance_webserverB_ip" {
-  value = google_compute_instance.web_B.network_interface[0].access_config[0].nat_ip
-}
-
-output "gcp_instance_stress_ip" {
-  value = google_compute_instance.stress.network_interface[0].access_config[0].nat_ip
-}
-
 #LB
 output "LB_ip" {
   value = google_compute_global_forwarding_rule.default.ip_address

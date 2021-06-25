@@ -67,7 +67,7 @@ resource "google_compute_backend_service" "glb_demo_zone_printer" {
   load_balancing_scheme = "EXTERNAL"
   protocol              = "HTTP"
   port_name             = "http"
-  security_policy       = google_compute_security_policy.glb_demo.self_link
+  security_policy       = google_compute_security_policy.security-policy-ddos-block.self_link
 
   backend {
     group          = data.google_compute_network_endpoint_group.zone_neg_eu_1.self_link
@@ -95,7 +95,7 @@ resource "google_compute_backend_service" "glb_demo_hello_app" {
   load_balancing_scheme = "EXTERNAL"
   protocol              = "HTTP"
   port_name             = "http"
-  security_policy       = google_compute_security_policy.glb_demo.self_link
+  security_policy       = google_compute_security_policy.security-policy-ddos-block.self_link
 
   backend {
     group          = data.google_compute_network_endpoint_group.hello_app_neg_eu_1.self_link
@@ -147,38 +147,5 @@ resource "google_compute_firewall" "glb_demo" {
     "130.211.0.0/22",
     "35.191.0.0/16",
   ]
-}
-
-# This is a Cloud Armor policy
-resource "google_compute_security_policy" "glb_demo" {
-  name = "glb-demo"
-
-  # Default rule, allow all traffic
-  rule {
-    action   = "allow"
-    priority = "2147483647"
-    match {
-      versioned_expr = "SRC_IPS_V1"
-      config {
-        src_ip_ranges = ["*"]
-      }
-    }
-    description = "default rule"
-  }
-
-  # Deny traffic from some IPs
-  rule {
-    action = "deny(403)"
-    # Lower value means higher priority
-    priority = "1000"
-    match {
-      versioned_expr = "SRC_IPS_V1"
-      config {
-        src_ip_ranges = ["9.9.9.0/24"]
-      }
-    }
-    description = "Deny access to IPs in 9.9.9.0/24"
-  }
-
 }
 
