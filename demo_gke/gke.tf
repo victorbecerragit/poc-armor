@@ -3,17 +3,18 @@
 
 resource "google_container_cluster" "master" {
   name                        = "${var.project_name}-k8-cluster"
-  network                     = google_compute_network.vpc_network.self_link
   location                    = var.region_zone
   initial_node_count          = 1
   remove_default_node_pool    = false
   min_master_version          = "1.17"
   node_version                = "1.17"
    
+  network                     = google_compute_network.vpc_network.self_link
+  subnetwork                  = google_compute_subnetwork.subnet.name
+
   depends_on = [
     "google_compute_network.vpc_network"]
 }
-
 
 # Separately Managed Node Pool
 resource "google_container_node_pool" "primary_nodes" {
