@@ -1,5 +1,4 @@
 # Example for using Cloud Armor https://cloud.google.com/armor/
-#
 # Configure the Google Cloud provider
 provider "google" {
   credentials = file(var.credentials_file)
@@ -123,6 +122,3 @@ resource "google_compute_url_map" "default" {
   }
 }
 
-output "LB_ip" {
-  value = google_compute_global_forwarding_rule.default.ip_address
-}

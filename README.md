@@ -11,6 +11,12 @@ We are going to walkthrough the process of creating a Cloud Armor policy, which 
 To run the example:
 * Set up a Google Cloud Platform service account. 
 * [Configure the Google Cloud Provider credentials](https://www.terraform.io/docs/providers/google/index.html#credentials)
+* Add to the Service account theses roles
+Compute Admin
+Compute Network Admin
+Kubernetes Engine Admin
+Service Account User
+Storage Admin
 * Update the `variables.tf` OR provide overrides in the command line
 * gcloud config:
   $gcloud auth login
