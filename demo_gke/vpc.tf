@@ -13,17 +13,17 @@ resource "google_compute_subnetwork" "subnet" {
 }
 
 #Create the Firewall rules
-resource "google_compute_firewall" "cluster1" {
-  name    = "armor-firewall"
-  network = google_compute_network.vpc_network.name
-
-  allow {
-    protocol = "icmp"
-  }
-
-  allow {
-    protocol = "tcp"
-    ports    = ["80", "43", "22"]
-  }
-}
+#resource "google_compute_firewall" "cluster1" {
+#  name    = "armor-firewall"
+#  network = google_compute_network.vpc_network.name
+#
+#  allow {
+#    protocol = "icmp"
+#  }
+#
+#  allow {
+#    protocol = "tcp"
+#    ports    = ["80", "43", "22"]
+#  }
+#}
 
