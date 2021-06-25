@@ -1,11 +1,3 @@
-output "gcp_instance_webserverA_ip" {
-  value = google_compute_instance.web_A.network_interface[0].access_config[0].nat_ip
-}
-
-output "gcp_instance_webserverB_ip" {
-  value = google_compute_instance.web_B.network_interface[0].access_config[0].nat_ip
-}
-
 resource "google_compute_instance" "web_A" {
   project      = var.project_name
   name         = "${var.name}-webserver-instance-a"

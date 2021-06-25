@@ -16,7 +16,7 @@ variable "region_stress_zone" {
 variable "project_name" {
   description = "The ID of the Google Cloud project"
   type        = string
-  default     = "lynqs-sandbox-ba"
+  default     = "playground-s-11-c9b9cf04"
 }
 
 variable "credentials_file" {
@@ -28,6 +28,17 @@ variable "name" {
   description = "Name for the load balancer forwarding rule and prefix for supporting resources."
   type        = string
   default     = "poc-armor"
+}
+
+variable "gke_num_nodes" {
+  default     = 3
+  description = "number of gke nodes"
+}
+
+variables "zone_neg_eu" {
+  description = "Name for the LB NEG" 
+  type        = string
+  default     = "ZONE_NEG_EU"
 }
 
 variable "ip_white_list" {

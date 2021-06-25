@@ -1,7 +1,3 @@
-output "gcp_instance_stress_ip" {
-  value = google_compute_instance.stress.network_interface[0].access_config[0].nat_ip
-}
-
 resource "google_compute_instance" "stress" {
   project      = var.project_name
   name         = "${var.name}-stress-instance"
@@ -13,7 +9,6 @@ resource "google_compute_instance" "stress" {
       image = "debian-cloud/debian-9"
     }
   }
-
 
   network_interface {
     # A default network is created for all GCP projects
