@@ -12,6 +12,11 @@ resource "google_container_cluster" "master" {
   network                     = google_compute_network.vpc_network.self_link
   subnetwork                  = google_compute_subnetwork.subnet.name
 
+  ip_allocation_policy {
+    cluster_secondary_range_name  = "services-range"
+    services_secondary_range_name = google_compute_subnetwork.subnet.secondary_ip_range.1.range_name
+  }
+
   depends_on = [
     "google_compute_network.vpc_network"]
 }
