@@ -16,7 +16,7 @@ variable "region_stress_zone" {
 variable "project_name" {
   description = "The ID of the Google Cloud project"
   type        = string
-  default     = "playground-s-11-c9b9cf04"
+  default     = "playground-s-11-e75039ae"
 }
 
 variable "credentials_file" {
@@ -35,10 +35,16 @@ variable "gke_num_nodes" {
   description = "number of gke nodes"
 }
 
-variables "zone_neg_eu" {
+variable "zone_neg_eu" {
   description = "Name for the LB NEG" 
   type        = string
-  default     = "ZONE_NEG_EU"
+  default     = "zone-neg-eu"
+}
+
+variable "hello_app_neg_eu" {
+  description = "Name for the LB NEG"
+  type        = string
+  default     = "hello-app-neg-eu"
 }
 
 variable "ip_white_list" {
