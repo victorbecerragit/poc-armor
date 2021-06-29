@@ -26,8 +26,8 @@ resource "google_compute_global_forwarding_rule" "glb_demo_https" {
 
 resource "google_compute_ssl_certificate" "glb_demo" {
   name_prefix = "glb-demo-"
-  private_key = file("example.key")
-  certificate = file("example.crt")
+  private_key = file("../certs/example.key")
+  certificate = file("../certs/example.crt")
 }
 
 resource "google_compute_target_https_proxy" "glb_demo" {

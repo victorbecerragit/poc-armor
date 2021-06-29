@@ -5,9 +5,10 @@ resource "google_container_cluster" "master" {
   name                        = "${var.project_name}-k8-cluster"
   location                    = var.region_zone
   initial_node_count          = 1
-  remove_default_node_pool    = false
   min_master_version          = "1.17"
   node_version                = "1.17"
+  default_max_pods_per_node   = 20
+  remove_default_node_pool    = true
    
   network                     = google_compute_network.vpc_network.self_link
   subnetwork                  = google_compute_subnetwork.subnet.name
