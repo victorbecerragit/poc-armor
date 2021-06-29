@@ -22,6 +22,6 @@ output "kubernetes_cluster_host" {
 
 #LB
 output "LB_ip" {
-  value = google_compute_global_forwarding_rule.default.ip_address
+  value = google_compute_global_forwarding_rule.glb_demo_http.ip_address
 }
 
