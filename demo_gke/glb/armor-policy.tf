@@ -9,7 +9,7 @@ resource "google_compute_security_policy" "security-policy-ddos-block" {
   rule {
     action   = "allow"
     priority = "2147483647"
-    preview  = true
+    preview  = false
 
     match {
       versioned_expr = "SRC_IPS_V1"
